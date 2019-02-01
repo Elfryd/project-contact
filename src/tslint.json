@@ -17,6 +17,8 @@
       "no-inferrable-types": false,
       "quotemark": false,
       "no-trailing-whitespace": false,
-      "one-line": false
+      "one-line": false,
+      "prefer-const": false,
+      "no-shadowed-variable": false
     }
 }

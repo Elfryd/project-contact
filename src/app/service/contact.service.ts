@@ -11,28 +11,28 @@ export class ContactService {
 
   constructor(private http: HttpClient) { }
 
-// ** Read  contact
+ /** GET : Get all contacts (Read contacts) */
   getContacts (): Observable<Contact[]> {
-    return this.http.get<Contact[]>('https://capg-492aa.firebaseio.com/contact.json')
+    return this.http.get<Contact[]>('https://capg-492aa.firebaseio.com/contacts.json')
       .pipe(
         tap(data => data),
         catchError(this.handleError('getContacts', []))
       );
   }
 
-  // Read one contact
+  /** GET : Get one contact by key (Read one contact) */
   getContactByKey(key: string): Observable<Contact[]>{
-    console.log('https://capg-492aa.firebaseio.com/contact/'+key+'.json');
-    return this.http.get<Contact[]>('https://capg-492aa.firebaseio.com/contact/'+key+'.json')
+    console.log('https://capg-492aa.firebaseio.com/contacts/'+key+'.json');
+    return this.http.get<Contact[]>('https://capg-492aa.firebaseio.com/contacts/'+key+'.json')
       .pipe(
         tap(data => JSON.stringify(data)),
         catchError(this.handleError('getContactByKey', []))
       );
   }
 
-  // POST :  Add a contact
+  /** POST :  Add a contact */
   addContact(contact: Contact): Observable<Contact> {
-    const url = 'https://capg-492aa.firebaseio.com/contact.json';
+    const url = 'https://capg-492aa.firebaseio.com/contacts.json';
     return this.http.post<Contact>(url, contact, {responseType: 'json'}).pipe(
       tap((product: Contact) => console.log('contact added')),
       catchError(this.handleError<Contact>('addContact'))
@@ -40,9 +40,9 @@ export class ContactService {
   }
 
 
-  // PUT :  Edit a contact
+  /** PUT :  Edit a contact */
   editContact(contact: Contact, key: string): Observable<Contact> {
-    const url = 'https://capg-492aa.firebaseio.com/contact/'+key+'.json';
+    const url = 'https://capg-492aa.firebaseio.com/contacts/'+key+'.json';
     return this.http.put<Contact>(url, contact, {responseType: 'json'}).pipe(
       tap((product: Contact) => console.log('contact edited')),
       catchError(this.handleError<Contact>('editContact'))
@@ -51,7 +51,7 @@ export class ContactService {
 
   /** DELETE: delete one contact */
   deleteContact(key: string): Observable<Contact>{
-    const url = 'https://capg-492aa.firebaseio.com/contact/'+key+'.json';
+    const url = 'https://capg-492aa.firebaseio.com/contacts/'+key+'.json';
     return this.http.delete<Contact>(url)
       .pipe(
         tap(data=>data),
