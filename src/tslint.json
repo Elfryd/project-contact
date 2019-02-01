@@ -12,6 +12,11 @@
             "element",
             "app",
             "kebab-case"
-        ]
+        ],
+      "whitespace": false,
+      "no-inferrable-types": false,
+      "quotemark": false,
+      "no-trailing-whitespace": false,
+      "one-line": false
     }
 }
