@@ -25,9 +25,6 @@ export class ContactAddComponent implements OnInit {
   }
 
   addContact() {
-    console.warn(this.contactForm.status);
-    console.warn(this.contactForm.valid);
-    console.warn(this.contactForm.value);
     const data = this.contactForm.value;
     this.contactService.addContact(
       new Contact(

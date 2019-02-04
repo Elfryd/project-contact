@@ -8,13 +8,17 @@ import { AppComponent } from './app.component';
 import { ContactListComponent } from './contact-list/contact-list.component';
 import { ContactAddComponent } from './contact-add/contact-add.component';
 import { ContactViewComponent } from './contact-view/contact-view.component';
+import { ContactEditComponent } from './contact-edit/contact-edit.component';
+import { SearchPipe } from './pipe/search.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     ContactListComponent,
     ContactAddComponent,
-    ContactViewComponent
+    ContactViewComponent,
+    ContactEditComponent,
+    SearchPipe
   ],
   imports: [
     BrowserModule,
